@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,102 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Primzahlen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIMZAHL-KONTROLLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2T-Ls-UZg">
+                                <rect key="frame" x="94" y="50" width="187" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3Vn-z2-uQH">
+                                <rect key="frame" x="166" y="602" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nlP-ug-Zcb">
+                                <rect key="frame" x="175.5" y="147.5" width="25" height="30"/>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvr-z4-lC0">
+                                <rect key="frame" x="150" y="194" width="74" height="30"/>
+                                <state key="normal" title="Berechnen"/>
+                                <connections>
+                                    <action selector="berechnenPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NgO-Yz-cnQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tragen sie den ganzzahligen Wert ein" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb0-yB-Kyb">
+                                <rect key="frame" x="44" y="112" width="286.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QrK-gJ-uiV">
+                                <rect key="frame" x="0.0" y="156" width="375" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7c-y9-WpE">
+                                <rect key="frame" x="175" y="270" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Die Teilermenge ist:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICh-gu-R4S">
+                                <rect key="frame" x="112" y="314" width="151" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="---" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cx0-1D-kN7">
+                                <rect key="frame" x="177" y="364" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="cx0-1D-kN7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="36R-La-gMR"/>
+                            <constraint firstItem="ICh-gu-R4S" firstAttribute="top" secondItem="h7c-y9-WpE" secondAttribute="bottom" constant="53" id="3hM-xj-Jwv"/>
+                            <constraint firstItem="QrK-gJ-uiV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6d1-P8-BZc"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7sj-pV-YYv"/>
+                            <constraint firstItem="x2T-Ls-UZg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7uF-l2-4EJ"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CQm-jy-OEr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QrK-gJ-uiV" secondAttribute="trailing" id="Gl2-SS-GyU"/>
+                            <constraint firstItem="x2T-Ls-UZg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ILC-6z-qlu"/>
+                            <constraint firstItem="cx0-1D-kN7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ISf-C0-aia"/>
+                            <constraint firstItem="x2T-Ls-UZg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="J7r-5C-Eh8"/>
+                            <constraint firstItem="vb0-yB-Kyb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JLA-1N-nyn"/>
+                            <constraint firstItem="Nvr-z4-lC0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Lc0-LY-r2d"/>
+                            <constraint firstItem="ICh-gu-R4S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nau-IM-dRE"/>
+                            <constraint firstItem="vb0-yB-Kyb" firstAttribute="top" secondItem="x2T-Ls-UZg" secondAttribute="bottom" constant="41.5" id="OEF-i3-sRx"/>
+                            <constraint firstItem="QrK-gJ-uiV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U1L-v4-RLC"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U68-Oc-dxh"/>
+                            <constraint firstItem="cx0-1D-kN7" firstAttribute="top" secondItem="ICh-gu-R4S" secondAttribute="bottom" constant="-2.5" id="VxA-Ug-IeI"/>
+                            <constraint firstItem="nlP-ug-Zcb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Wl2-9K-lyP"/>
+                            <constraint firstItem="Nvr-z4-lC0" firstAttribute="top" secondItem="QrK-gJ-uiV" secondAttribute="bottom" constant="8" id="bjV-gq-IdQ"/>
+                            <constraint firstItem="cx0-1D-kN7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cWa-mz-jzo"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="dIX-Mm-IZa"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="top" secondItem="Nvr-z4-lC0" secondAttribute="bottom" constant="37" id="rzB-IW-vZh"/>
+                            <constraint firstItem="ICh-gu-R4S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="twb-hm-gyA"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vej-Ow-urv"/>
+                            <constraint firstItem="QrK-gJ-uiV" firstAttribute="top" secondItem="vb0-yB-Kyb" secondAttribute="bottom" constant="23.5" id="yQk-pv-oxA"/>
+                            <constraint firstItem="h7c-y9-WpE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yVy-Mr-AcP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="ergebnisLabel" destination="h7c-y9-WpE" id="rpJ-L9-2YF"/>
+                        <outlet property="teilermengeLabel" destination="cx0-1D-kN7" id="rWF-xr-1ew"/>
+                        <outlet property="zahlEingegebenTextField" destination="QrK-gJ-uiV" id="vJ1-gq-ZLx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
     </scenes>
 </document>

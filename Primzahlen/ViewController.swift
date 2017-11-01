@@ -20,6 +20,41 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBOutlet weak var zahlEingegebenTextField: UITextField!
 
+    @IBOutlet weak var ergebnisLabel: UILabel!
+    
+    @IBOutlet weak var teilermengeLabel: UILabel!
+    
+    @IBAction func berechnenPressed(_ sender: UIButton) {
+        let zahl = Int (zahlEingegebenTextField.text!);
+        var isPrimzahl = true;
+        var teilerMenge : [Int] = [];
+        
+        if (zahl! >= 2) {
+            var i = 2;
+            while (zahl!>i) {
+                if (zahl! % i == 0) {
+                    teilerMenge.append(i);
+                    isPrimzahl = false;
+                }
+                i += 1;
+            }
+            var ergebnis = " Die Zahl \(zahl) is";
+            if (isPrimzahl) {
+                ergebnis += " eine Primzahl. ";
+                ergebnisLabel.textColor = UIColor.green;
+
+            } else {
+                 ergebnis += " keine Primzahl. ";
+                print(teilerMenge);
+                ergebnisLabel.textColor = UIColor.red;
+                teilermengeLabel.text = String (describing: teilerMenge);
+            }
+            ergebnisLabel.text = ergebnis;
+            
+        }
+        
+    }
 }
 
