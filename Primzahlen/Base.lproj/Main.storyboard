@@ -102,6 +102,7 @@
                     </view>
                     <connections>
                         <outlet property="ergebnisLabel" destination="h7c-y9-WpE" id="rpJ-L9-2YF"/>
+                        <outlet property="schriftTeilermengeLabel" destination="ICh-gu-R4S" id="vQy-CQ-iOl"/>
                         <outlet property="teilermengeLabel" destination="cx0-1D-kN7" id="rWF-xr-1ew"/>
                         <outlet property="zahlEingegebenTextField" destination="QrK-gJ-uiV" id="vJ1-gq-ZLx"/>
                     </connections>
