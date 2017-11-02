@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var iTimer : Int = 0;
+    var timer = Timer();
     
     @objc func processTimer() {
         iTimer += 1;
@@ -24,8 +25,9 @@ class ViewController: UIViewController {
         schriftTeilermengeLabel.text = "";
         
         // timer        
-        var timer = Timer();
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.processTimer), userInfo: nil, repeats: true)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,6 +43,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var teilermengeTextView: UITextView!
 
+    @IBAction func timerStopPressed(_ sender: UIBarButtonItem) {
+        timer.invalidate()
+        print("Timer stopped")
+    }
     
     @IBAction func berechnenPressed(_ sender: UIButton) {
         let zahl = Int (zahlEingegebenTextField.text!)!;
@@ -57,7 +63,7 @@ class ViewController: UIViewController {
                 i += 1;
             }
   //          -----einfach git versuchen ---
-            var ergebnis = " Die Zahl \(zahl) is";
+            var ergebnis = " Die Zahl \(zahl) ist";
             
             if (isPrimzahl) {
                 ergebnis += " eine Primzahl. ";
