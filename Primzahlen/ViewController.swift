@@ -27,14 +27,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var teilermengeLabel: UILabel!
     
     @IBAction func berechnenPressed(_ sender: UIButton) {
-        let zahl = Int (zahlEingegebenTextField.text!);
+        let zahl = Int (zahlEingegebenTextField.text!)!;
         var isPrimzahl = true;
         var teilerMenge : [Int] = [];
         
-        if (zahl! >= 2) {
+        if (zahl >= 2) {
             var i = 2;
-            while (zahl!>i) {
-                if (zahl! % i == 0) {
+            while (zahl>i) {
+                if (zahl % i == 0) {
                     teilerMenge.append(i);
                     isPrimzahl = false;
                 }
