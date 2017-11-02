@@ -20,11 +20,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         ergebnisLabel.text = "";
-        teilermengeLabel.text = "";
+        teilermengeTextView.text = "";
         schriftTeilermengeLabel.text = "";
         
-        // timer
-        
+        // timer        
         var timer = Timer();
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.processTimer), userInfo: nil, repeats: true)
     }
@@ -39,7 +38,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var ergebnisLabel: UILabel!
     
     @IBOutlet weak var schriftTeilermengeLabel: UILabel!
-    @IBOutlet weak var teilermengeLabel: UILabel!
+
+    @IBOutlet weak var teilermengeTextView: UITextView!
+
     
     @IBAction func berechnenPressed(_ sender: UIButton) {
         let zahl = Int (zahlEingegebenTextField.text!)!;
@@ -55,11 +56,16 @@ class ViewController: UIViewController {
                 }
                 i += 1;
             }
+            
             var ergebnis = " Die Zahl \(zahl) is";
+            
             if (isPrimzahl) {
                 ergebnis += " eine Primzahl. ";
-                ergebnisLabel.textColor = UIColor.green;
-                teilermengeLabel.text = "";
+                
+                //UIColor example
+               ergebnisLabel.textColor = UIColor(red: 0.0, green: 0.004, blue: 0.502, alpha: 1.0)
+                
+                teilermengeTextView.text = "";
                 schriftTeilermengeLabel.text = "";
 
             } else {
@@ -67,7 +73,7 @@ class ViewController: UIViewController {
                 print(teilerMenge);
                 ergebnisLabel.textColor = UIColor.red;
                 schriftTeilermengeLabel.text = "Die Teilermenge ist: ";
-                teilermengeLabel.text = String (describing: teilerMenge);
+                teilermengeTextView.text = String (describing: teilerMenge);
             }
             ergebnisLabel.text = ergebnis;
             
