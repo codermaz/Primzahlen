@@ -9,13 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var iTimer : Int = 0;
+    
+    @objc func processTimer() {
+        iTimer += 1;
+        print ("Sekunden verpasst : \(iTimer) ");
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         ergebnisLabel.text = "";
         teilermengeLabel.text = "";
         schriftTeilermengeLabel.text = "";
+        
+        // timer
+        
+        var timer = Timer();
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.processTimer), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
