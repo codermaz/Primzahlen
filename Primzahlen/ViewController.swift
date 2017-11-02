@@ -56,7 +56,7 @@ class ViewController: UIViewController {
                 }
                 i += 1;
             }
-            
+  //          -----einfach git versuchen ---
             var ergebnis = " Die Zahl \(zahl) is";
             
             if (isPrimzahl) {
